@@ -1,0 +1,289 @@
+
+/* 
+ * General styles
+ * Element styles
+    - Blood
+    - Glitch
+    - Skull
+
+  * Animation keyframes
+    - Blood
+    - Glitch
+    - Skull
+*/
+
+/*
+ * General
+ */
+
+body.spookify {
+  animation: darken 25s ease-in;
+  animation-fill-mode: forwards;
+  background-color: initial;
+  color: initial; 
+}
+
+#spookify {
+  animation: darken 25s ease-in;
+  animation-fill-mode: forwards;
+  background-color: transparent;
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 99999;
+}
+
+#spookify #message {
+  animation: pulse 3s ease-out infinite;
+  text-shadow: 2px 2px 4px transparent;
+  text-align: center;
+  font-size: 25vh;
+  margin-top: 25vh;
+  opacity: 0;
+}
+
+#spookify .help {
+  background-color: white;
+  border-radius: 6px;
+  color: black;
+  display: block;
+  margin: 0 1rem 1rem 0;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+#spookify .help::after {
+  animation: pulse 8s ease infinite;
+  border-radius: 6px;
+  box-shadow: 0px 0px 8px 2px rgba(255, 255, 255, 0.9);
+  content: '';
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+/*
+ * Element - Blood
+ */
+
+#spookify .blood {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+#spookify .drip {
+  animation: drip 14s ease;
+  animation-fill-mode: forwards;
+  background-color: rgba(225, 25, 45, 1);
+  border-radius: 0 90% 200% 90%;
+  height: 18px;
+  margin-top: 10px;
+  position: absolute;
+  transform: rotate(45deg) skew(16deg, 16deg);
+  width: 18px;
+  top: -30px;
+  z-index: 2;
+}
+
+#spookify .streak {
+  animation: streak 28s ease;
+  animation-fill-mode: forwards;
+  background: linear-gradient(to bottom, rgba(195,25,45,0.7) 0%,rgba(225,25,45,0.9) 100%);
+  border-radius: 50% / 10% 5%;
+  border-bottom: 10px solid rgba(225, 25, 45, 0.3);
+  height: 12px;
+  margin-left: 5px;
+  opacity: 1;
+  position: fixed;
+  top: -24px;
+  width: 8px;
+  z-index: 1;
+}
+
+/*
+ * Element - Glitch
+ */
+
+#spookify .glitch {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#spookify .glitch.active {
+  animation: glitch 14s ease infinite;
+  background: white url(./img/black-and-white-2603731_1920.jpg) center / cover;
+}
+
+/*
+ * Element - Skull
+ */
+
+#spookify .skull {
+  height: 40vw;
+  opacity: 0;
+  position: absolute;
+  transform: scale(0.4);
+  top: 20vh;
+  width: 35vw;
+}
+
+#spookify .skull.active {
+  animation: gentle-fade 28s ease-out infinite;
+  background: transparent url(./img/screaming-321488_1920-modified.png) center / cover;
+}
+
+/*
+ * Animations
+ */
+
+@keyframes darken {
+  50% {
+    background-color: initial;
+    color: initial;
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+}
+
+@keyframes pulse {
+  45% {
+    opacity: 0.9; 
+  }
+  55% {
+    opacity: 0.9; 
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  50% {
+    text-shadow: 2px 2px 4px white;
+  }
+  60% {
+    text-shadow: 2px 2px 4px white;
+  }
+  100% {
+    text-shadow: 2px 2px 4px transparent;
+  }
+}
+
+/*
+ * Animations - Blood
+ */
+
+@keyframes drip {
+  50% {
+    top: 80vh;
+  }
+  100% {
+    top: calc(100vh + 18px);
+  }
+}
+
+@keyframes streak {
+  25% {
+    height: calc(80vh + 36px);
+  }
+  50% {
+    height: calc(100vh + 54px);
+    opacity: 1;
+    top: -24px;
+  }
+  100% {
+    height: calc(100vh + 54px);
+    opacity: 0;
+    top: 50vh;
+  }
+}
+
+/*
+ * Animations - Glitch
+ */
+
+@keyframes glitch {
+  25% {
+    opacity: 0;
+  }
+  25.5% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0;
+  }
+
+  27% {
+    opacity: 0;
+  }
+  27.5% {
+    opacity: 1;
+  }
+  28% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0;
+  }
+  66.5% {
+    opacity: 1;
+  }
+  67% {
+    opacity: 0;
+  }
+  68% {
+    opacity: 1;
+  }
+  69.5% {
+    opacity: 0;
+  }
+
+  71% {
+    opacity: 0;
+  }
+  71.5% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0;
+  }
+}
+
+/*
+ * Animations - Skull
+ */
+
+@keyframes gentle-fade {
+  40% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.22;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
